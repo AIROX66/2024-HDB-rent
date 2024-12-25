@@ -1,0 +1,21 @@
+jobs:
+  run-notebook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Jupyter Notebook
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+        run: |
+          jupyter nbconvert --to notebook --execute your_notebook.ipynb
