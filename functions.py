@@ -18,7 +18,7 @@ def load_api_key():
 
 def plotting(title, type_of_plot, data, x_columns, y_columns, 
              category = None, desired_order = None, x_min = None, x_max = None, y_max = None):
-    #plt.figure(figsize=(20, 8))
+    plt.figure(figsize=(20, 8))
     plt.title(title, fontsize=16)
     plt.xlabel('Category', fontsize=12)
     plt.ylabel('Value', fontsize=12)
